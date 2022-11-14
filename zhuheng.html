@@ -3,15 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style type="text/css"></style>
 
-    <script type="text/javascript">
+    <!--    elementUI本地应用
+    <link rel="stylesheet" href="lib/theme-chalk/index.css">
+    <script src="lib/index.js"></script>-->
 
-    </script>
+    <script src="js/vue.js"></script>
+
+    <!--    elementUI网络应用-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 </head>
 <body>
-    <div style="background-color:#efcc31;width: 50%;height: 100px;margin: auto">
-        <p align="center" style="color: #FFFFFF">www.朱恒是混蛋.com</p>
+    <div id="app">
+<!--        <el-switch v-model="flag1"></el-switch>-->
+        朱恒：<br>
+        <el-switch v-model="flag2" active-text="已阳痿" inactive-text="未阳痿"></el-switch>
+        <hr>
+        <el-avatar src="images/zhu1.jpg" :size="400" shape="square"></el-avatar>
+        <el-avatar src="images/zhu2.png" :size="400" shape="square"></el-avatar>
     </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag1: false,
+                flag2: true
+            },
+            watch:{
+                flag2:function (newdata, olddata) {
+                    console.log(`旧数据是：${olddata}`, `新数据是：${newdata}`);
+                }
+            }
+
+        });
+    </script>
 </body>
 </html>
